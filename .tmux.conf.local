@@ -43,15 +43,10 @@ tmux_conf_new_session_prompt=false
 #  - true
 #  - false (default)
 tmux_conf_theme_24b_colour=true
-
-# window style
-tmux_conf_theme_window_fg='default'
-tmux_conf_theme_window_bg='default'
-
-# highlight focused pane (tmux >= 2.1), possible values are:
-#   - true
-#   - false (default)
-tmux_conf_theme_highlight_focused_pane=false
+# Add truecolor support
+set-option -ga terminal-overrides ",xterm-256color:Tc"
+# Default terminal is 256 colors
+set -g default-terminal "screen-256color"
 
 
 # -- clipboard -----------------------------------------------------------------
@@ -61,14 +56,14 @@ tmux_conf_theme_highlight_focused_pane=false
 #   - false (default)
 # on macOS, this requires installing reattach-to-user-namespace, see README.md
 # on Linux, this requires xsel or xclip
-tmux_conf_copy_to_os_clipboard=false
+tmux_conf_copy_to_os_clipboard=true
 
 
 # -- user customizations -------------------------------------------------------
 # this is the place to override or undo settings
 
 # increase history size
-#set -g history-limit 10000
+set -g history-limit 10000
 
 # start with mouse mode enabled
 #set -g mouse on
@@ -87,3 +82,16 @@ tmux_conf_copy_to_os_clipboard=false
 
 # move status line to top
 #set -g status-position top
+
+# List of plugins
+set -g @tpm_plugins '          \
+  tmux-plugins/tpm             \
+  tmux-plugins/tmux-sensible   \
+  tmux-plugins/tmux-resurrect  \
+  arcticicestudio/nord-tmux  \
+  tmux-plugins/tmux-open  \
+  tmux-plugins/tmux-copycat\
+'
+
+# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+run '~/.tmux/plugins/tpm/tpm'
