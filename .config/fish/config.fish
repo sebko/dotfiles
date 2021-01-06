@@ -1,9 +1,8 @@
 set -g theme_nerd_fonts yes
 set -g theme_color_scheme terminal2-dark
-bass source ~/.nvm/nvm.sh --no-use ';' nvm use 10.11.0
 
 # for commiting dotfiles
-alias config='git --git-dir=$HOME/.myconf/ --work-tree=$HOME'
+alias config='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias vim=nvim
 alias vi=nvim
 alias y="yarn"
