@@ -1,1 +1,1 @@
-# sample-python-app
+https://www.atlassian.com/git/tutorials/dotfiles
